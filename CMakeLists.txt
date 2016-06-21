@@ -48,8 +48,8 @@ include (DetermineGflagsNamespace)
 set (CMAKE_THREAD_PREFER_PTHREAD 1)
 
 if (WITH_GFLAGS)
-  find_package (gflags)
-
+  #find_package (gflags)
+  set(gflags_FOUND true)
   if (gflags_FOUND)
     set (HAVE_LIB_GFLAGS 1)
     determine_gflags_namespace (gflags_NAMESPACE)
@@ -390,7 +390,7 @@ if (HAVE_NO_UNNAMED_TYPE_TEMPLATE_ARGS)
 endif (HAVE_NO_UNNAMED_TYPE_TEMPLATE_ARGS)
 
 if (gflags_FOUND)
-  target_include_directories (glog PUBLIC ${gflags_INCLUDE_DIR})
+  #target_include_directories (glog PUBLIC ${gflags_INCLUDE_DIR})
   target_link_libraries (glog PUBLIC ${gflags_LIBRARIES})
 
   if (NOT BUILD_SHARED_LIBS)
